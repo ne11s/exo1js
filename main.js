@@ -23,3 +23,16 @@ console.log("Scores moyens : "+filtrerScores(scores, estMoyen));
 console.log("Scores insuffisants : "+filtrerScores(scores, estInsuffisant));
 
 
+function traiterScores(scores, callback){
+    const newArray = []
+    scores.map((s) => {
+        newArray.push(callback(s))
+    })
+    return newArray
+}
+
+function multiplieParUnptsUn(score){
+    return score*1.1
+}
+
+console.log(traiterScores(scores, multiplieParUnptsUn));
