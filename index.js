@@ -34,12 +34,38 @@ function mention(player , score){
     } else if (score <= 100 ) {
         mention = "Excellent"
     }
-    console.log("le joueur " + player + " a ue la mention :"+mention);
+    console.log("le joueur " + player + " a eu la mention :"+mention);
     
     
 }
 
-
+function nombreMentions(scores) {
+    let numMention = {
+        "Excellent" :0,
+        "TresBien":0,
+        "Bien":0,
+        "Passable":0,
+        "Insuffisant":0
+    }
+    
+    for (let i =0  ; i<scores.length; i++) {
+        scores[i]
+        if(scores[i] < 50) {
+            numMention.Insuffisant +=1
+        } else if (scores[i] <= 64) {
+            numMention.Passable +=1
+        } else if (scores[i] <= 79 ){
+            numMention.Bien +=1
+        } else if(scores[i] <= 88) {
+            numMention.TresBien +=1
+        } else if (scores[i] <= 100 ) {
+            numMention.Excellent +=1
+        }
+    }
+    console.log(numMention);
+    
+    
+}
 
 afficherScores(score)
 moyenne(score)
@@ -51,3 +77,4 @@ mention("joueur 2" , score[1])
 mention("joueur 3" , score[2])
 mention("joueur 4" , score[3])
 mention("joueur 5" , score[4])
+nombreMentions(score)
